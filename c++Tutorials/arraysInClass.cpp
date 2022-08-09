@@ -11,7 +11,7 @@ class shop
 public:
     void getPrice();
     void setprice();
-    void initcounter()
+    void initcounter();
     {
         counter = 0;
     };
