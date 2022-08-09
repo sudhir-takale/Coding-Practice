@@ -30,6 +30,7 @@ int main()
 {
 
     int a[6];
+    printf("Enter the element to array :\n");
     for (int i = 0; i < 6; i++)
     {
         scanf("%d", &a[i]);
