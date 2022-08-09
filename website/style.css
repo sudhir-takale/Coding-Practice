@@ -1,0 +1,33 @@
+.navbar{
+
+}
+
+.navbar li{
+    float: left;
+    display: inline;
+    color: red;
+    font: size 25px; 
+}
+.navbar li a{
+    display: block;
+    color: white;
+     text-decoration: none;
+    
+    padding: 34px 23px;
+}
+.navbar li a:hover,.navbar li a:active{
+    text-decoration: underline;
+    color: red;
+
+}
+.navbar li a:hover, .navbar{
+text-decoration: underline;
+color: blue;
+}
+.mid{
+display: block;
+width: 20%;
+margin:  20px auto;
+
+
+border :2px solid green;

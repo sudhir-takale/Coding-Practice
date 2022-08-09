@@ -1,0 +1,41 @@
+
+
+
+.navbar {
+    background-color: black;
+  border-radius: 8px;
+  margin-top: 5px;
+  
+  
+    
+    
+}
+.navbar li{
+float: left;
+list-style: none;
+padding: 5px 5px;
+margin: 5px;
+color: white;
+
+}
+.navbar ul{
+
+    overflow: auto;
+}
+.mainimg{
+  
+  width: 300px;
+  margin:auto;
+  float: right;
+  margin: 300px;
+
+
+}
+.Name{
+  /* display: block; */
+  /* text-align: center; */
+  /* margin-top: auto; */
+  font-size: 70px;
+  font-family: fantasy;
+  
+}
