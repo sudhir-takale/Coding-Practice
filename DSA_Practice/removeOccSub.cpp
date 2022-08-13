@@ -25,7 +25,7 @@ string replaceSpaces(string &str)
 int main()
 {
     string s = "Coding Ninjas Is A Coding Platform";
-
+     cout <<"Output of the Code" << endl;
     cout << replaceSpaces(s);
     return 0;
 }

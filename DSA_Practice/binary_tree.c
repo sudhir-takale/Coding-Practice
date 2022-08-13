@@ -26,7 +26,7 @@ struct node *create()
 
     if (data == -1)
     {
-        return 0;
+        return 0; 
     }
     newnode->data = data;
     printf("\nEnter the left child node of %d :", data);
