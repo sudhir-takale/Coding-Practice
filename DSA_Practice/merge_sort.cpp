@@ -12,17 +12,17 @@ void merge(int arr[], int s, int e)
   // int m = s;
   for (int i = 0; i < n1; i++)
   {
-    first[i] = arr[s +i];
+    first[i] = arr[s + i];
   }
   // int z = mid + 1;
   for (int i = 0; i < n2; i++)
   {
-    second[i] = arr[mid+1 +i];
+    second[i] = arr[mid + 1 + i];
   }
 
   int i = 0;
   int j = 0;
-  int k = s;  // as the s pointing to the 1st index of main array so we have to initialize it with s only.
+  int k = s; // as the s pointing to the 1st index of main array so we have to initialize it with s only. and we are going to change main array.
 
   while (i < n1 && j < n2)
   {
@@ -60,7 +60,8 @@ void mergeSort(int arr[], int s, int e)
   mergeSort(arr, mid + 1, e);
   merge(arr, s, e);
 }
-void printArray(int arr[], int size){
+void printArray(int arr[], int size)
+{
 
   for (int i = 0; i < size; i++)
   {
@@ -72,12 +73,17 @@ void printArray(int arr[], int size){
 int main()
 {
 
-  int arr[] = {3, 5, 7, 3, 4, 2, 0};
+  int arr[7];
+  cout << "Enter elements to array :" << endl;
+  for (int i = 0; i < 7; i++)
+  {
+    cin >> arr[i];
+  }
+
   int size = 7;
   printArray(arr, size);
-  mergeSort(arr, 0, size );
+  mergeSort(arr, 0, size);
   printArray(arr, size);
-  
 
   return 0;
 }
