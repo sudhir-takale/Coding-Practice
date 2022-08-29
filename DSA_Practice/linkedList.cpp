@@ -13,6 +13,10 @@ public:
         this->next = NULL;
     }
 };
+
+
+
+
 void insertHead(Node *&head, int data)
 {
 
@@ -48,7 +52,7 @@ int main()
 {
 
     Node *head = new Node(67);
-    
+
     insertHead(head, 34);
     insertHead(head, 4);
 
