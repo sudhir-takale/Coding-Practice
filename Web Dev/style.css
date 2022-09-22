@@ -1,0 +1,19 @@
+body{
+    background-color:greenyellow;
+}
+
+
+
+.img {
+    float: right;
+
+    border-image: round;
+    border-color: red;
+    border-width: 233px;
+    margin-top: 23%;
+   
+   
+
+    
+
+}

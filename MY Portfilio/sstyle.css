@@ -1,11 +1,14 @@
 
-
+/* body {
+  background-color: #f8fcfc;
+} */
 
 .navbar {
-    background-color: black;
+    background-color: rgb(33, 32, 33);
   border-radius: 8px;
-  margin-top: 5px;
-  
+ 
+  position: relative;
+  text-decoration: none;
   
     
     
@@ -15,27 +18,49 @@ float: left;
 list-style: none;
 padding: 5px 5px;
 margin: 5px;
-color: white;
+font-size: 20px;
+color: green;
+  text-decoration: none;
+font-family: cursive;
+text-align: center;
+
 
 }
+
+
+
+
 .navbar ul{
 
     overflow: auto;
 }
-.mainimg{
+
+.name {
+  font-size: 40px;
+font-family: cursive;
+color: green;
+  display: block;
+  text-align: center;
+  margin-top: 300px;
   
-  width: 300px;
-  margin:auto;
-  float: right;
-  margin: 300px;
-
-
+  
 }
-.Name{
-  /* display: block; */
-  /* text-align: center; */
-  /* margin-top: auto; */
-  font-size: 70px;
-  font-family: fantasy;
-  
+.aboutheader {
+  display: block;
+  text-align: center;
+  color: green;
+  font-size: 25px;
+  font-family: cursive;
+  margin-top: 50%;
+}
+.aboutsection {
+
+font-size: 20px;
+font-family: cursive;
+color: black;
+display: inline-block;
+word-wrap: break-word;
+
+
+
 }
