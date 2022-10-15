@@ -36,11 +36,21 @@ node *createTree(node *root)
     return root;
 }
 
+void inorderTraversal(node *root)
+{
+    if (root == NULL)
+        return;
+    inorderTraversal(root->left);
+    cout << root->data << " ";
+    inorderTraversal(root->right);
+}
+
 int main()
 {
 
     node *root = NULL;
     root = createTree(root);
-
+    inorderTraversal(root);
+    
     return 0;
 }
