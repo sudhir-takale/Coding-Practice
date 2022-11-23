@@ -1,15 +1,18 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 
 using namespace std;
+
 int main()
 {
 
     int n, m, u, v;
+    cout << "Enter the values of m and n and edges of the graph:" << endl;
+
     cin >> n >> m;
 
     vector<int> adj[n + 1];
-    cout << "Enter the values of m and n and edges of the graph:" << endl;
     for (int i = 0; i < m; i++)
     {
         cin >> u >> v;
@@ -17,26 +20,37 @@ int main()
         adj[v].push_back(u);
     }
 
-    // for (int i = 0; i < m; i++)
-    // {
-    //     cout << i << "--->";
-    //     list<int>::iterator it;
-    //     for (it = adj[i].begin(); it != adj[i].end(); ++it)
-    //     {
-    //         cout << *it << " ";
-    //     }
-    //     cout << endl;
-    // }
-
-    for (int i = 0; i < n + 1; i++)
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < n + 1; j++)
+        cout << i << "->";
+        for (int &x : adj[i])
         {
-            cout << adj[i][j] << " ";
+            cout << x << " ";
         }
-
         cout << endl;
     }
+cout << "bfs traversal start here " << endl;
+    vector<int> bfs;
 
+    int vis[n] = {0};
+    queue<int> q;
+    q.push(0);
+
+    while (!q.empty())
+    {
+        int node = q.front();
+        q.pop();
+        cout << node << " ";
+        for (auto i : adj[node])
+        {
+            if (!vis[i])
+            {
+                vis[i] = 1;
+                q.push(i);
+            }
+        }
+    }
+
+    
     return 0;
 }
