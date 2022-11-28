@@ -6,7 +6,5 @@ for i in range(50):
         print(i,"Divisible by 3")
     elif i/5 == 0:
         print(i,"divisible by 5")
-    
-
     else :
         print(i, "not divisible by any one")
