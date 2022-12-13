@@ -17,13 +17,16 @@ class Employee:
 
     def __truediv__(self,other):  # --> this is operator overoladind we can write add also here
         return self.salary/other.salary 
+
     def __repr__(self) -> str: # this is repr method which return the string
         return self.printdetails()
+
     def __str__(self) -> str:
         return f"Employee('{self.name}' {self.salary} '{self.role}')"
-        # in this str and repr method the str mehod always executes first    
+        # in this str and repr method the str mehod always executes first   
+         
 emp1=Employee("sudhir",47858,"sde") 
-emp2=Employee("rohan",45653,"kdjfk") 
+emp2=Employee("rohan",45653,"tester") 
 print(emp1)
 print(emp1/emp2)   # --> we can add div the salary name by this method
       

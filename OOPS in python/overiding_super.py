@@ -8,10 +8,13 @@ class Employee:
         self.address=address
         self.role=role
         self.special="I am a special variable"
+
     def printDetails(self):
         print(f"My  name is {self.name} I am living in the {self.address} and my role is {self.role}")    
+
 class Manager(Employee):        
     nuame=" I am work under the manager"
+    
     def __init__(self, iname, address, role) -> None:
         self.iname=iname
         self.address=address
