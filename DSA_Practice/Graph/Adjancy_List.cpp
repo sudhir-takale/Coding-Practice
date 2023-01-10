@@ -1,61 +1,80 @@
+// BFS algorithm in C++
+
 #include <iostream>
-#include <vector>
-#include <queue>
+#include <list>
+
 using namespace std;
 
-int main()
+class Graph
 {
+    int numVertices;
+    list<int> *adjLists;
+    bool *visited;
 
-    int n, m;
-    cout << "Enter the values of m and n and edges of the graph:" << endl;
+public:
+    Graph(int vertices);
+    void addEdge(int src, int dest);
+    void BFS(int startVertex);
+};
 
-    cin >> n >> m;
+// Create a graph with given vertices,
+// and maintain an adjacency list
+Graph::Graph(int vertices)
+{
+    numVertices = vertices;
+    adjLists = new list<int>[vertices];
+}
 
-    vector<int> adj[n + 1];
-    for (int i = 0; i < m; i++)
+// Add edges to the graph
+void Graph::addEdge(int src, int dest)
+{
+    adjLists[src].push_back(dest);
+    adjLists[dest].push_back(src);
+}
+
+// BFS algorithm
+void Graph::BFS(int startVertex)
+{
+    visited = new bool[numVertices];
+    for (int i = 0; i < numVertices; i++)
+        visited[i] = false;
+
+    list<int> queue;
+
+    visited[startVertex] = true;
+    queue.push_back(startVertex);
+
+    list<int>::iterator i;
+
+    while (!queue.empty())
     {
-        int u, v;
-        cin >> u >> v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
-    }
-    vector<int> ans(n + 1);
-    int vis[] = {0};
-    queue<int> q;
-    int s = 0;
-    ans.push_back(s);
-    q.push(s);
-    vis[s] = 1;
+        int currVertex = queue.front();
+        cout << "Visited " << currVertex << " ";
+        queue.pop_front();
 
-    while (!q.empty())
-    {
-        int node = q.front();
-        q.pop();
-        ans.push_back(node);
-        for (int it : adj[node])
+        for (i = adjLists[currVertex].begin(); i != adjLists[currVertex].end(); ++i)
         {
-            if (vis[it] == 0)
+            int adjVertex = *i;
+            if (!visited[adjVertex])
             {
-                q.push(it);
-                vis[it] = 1;
+                visited[adjVertex] = true;
+                queue.push_back(adjVertex);
             }
         }
     }
+}
 
-    for (int i : ans)
-    {
-        cout << i << " ";
-    }
+int main()
+{
+    Graph g(4);
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 2);
+    g.addEdge(2, 0);
+    g.addEdge(2, 3);
+    g.addEdge(3, 3);
 
-    // for (int i = 0; i < m; i++)
-    // {
-    //     cout << i << "->";
-    //     for (int x : adj[i])
-    //     {
-    //         cout << x << " ";
-    //     }
-    //     cout << endl;
-    // }
+    g.BFS(2);
 
     return 0;
 }

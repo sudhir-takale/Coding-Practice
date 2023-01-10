@@ -40,46 +40,43 @@
 //     return 0;
 // }
 
+#include <stdio.h>
 
-#include<stdio.h>
-  
-int binarySearch(int a[], int size, int element){
-
-int low = 0;
-int high = size - 1;
-
-while (low <= high)
+int binarySearch(int a[], int size, int element)
 {
-    int mid = (low + high)/2;
 
-    if (a[mid] == element)
+    int low = 0;
+    int high = size - 1;
+
+    while (low <= high)
     {
-        return mid;
+        int mid = (low + high) / 2;
+
+        if (a[mid] == element)
+        {
+            return mid;
+        }
+
+        if (a[mid] < element)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
     }
-    
-    if ( a[mid] < element)
-    {
-        low = mid + 1;
-    }
-    else{
-        high = mid - 1;
-    }
-    
+    return -1;
 }
-return -1;
 
-}
+int main()
+{
 
+    int a[] = {1, 2, 3, 4, 5, 6, 7, 34, 89};
+    int size = 9;
+    int element = 34;
+    int search = binarySearch(a, size, element);
+    printf("\nThe element is at : %d location", search);
 
-
-int main(){
- 
-int a[] = {1,2,3,4,5,6,7,34,89};
-int size = 9;
-int element = 34;
-int search =  binarySearch(a, size, element);
-printf("\nThe element is at : %d location",search);
- 
-return 0;
- 
+    return 0;
 }
