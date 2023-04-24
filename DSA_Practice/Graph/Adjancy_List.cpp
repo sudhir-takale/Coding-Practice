@@ -1,80 +1,109 @@
-// BFS algorithm in C++
-
 #include <iostream>
-#include <list>
-
+#include <bits/stdc++.h>
+#include <vector>
+#include <stack>
 using namespace std;
 
-class Graph
+vector<int> adj[6];
+
+// void dfsOfGraph(int start)
+// {
+
+//     int vis[6] = {0};
+//     vis[start] = 1;
+
+//     cout << start << " ";
+//     for (auto it : adj[start])
+//     {
+//         if (adj[it])
+//             return;
+//         else
+//             dfsOfGraph(it);
+//     }
+// }
+
+vector<int> bfsOfGraph(int start)
 {
-    int numVertices;
-    list<int> *adjLists;
-    bool *visited;
 
-public:
-    Graph(int vertices);
-    void addEdge(int src, int dest);
-    void BFS(int startVertex);
-};
+    vector<int> ans;
+    bool vis[6] = {false};
 
-// Create a graph with given vertices,
-// and maintain an adjacency list
-Graph::Graph(int vertices)
-{
-    numVertices = vertices;
-    adjLists = new list<int>[vertices];
-}
+    queue<int> q;
 
-// Add edges to the graph
-void Graph::addEdge(int src, int dest)
-{
-    adjLists[src].push_back(dest);
-    adjLists[dest].push_back(src);
-}
+    vis[start] = true;
+    q.push(start);
 
-// BFS algorithm
-void Graph::BFS(int startVertex)
-{
-    visited = new bool[numVertices];
-    for (int i = 0; i < numVertices; i++)
-        visited[i] = false;
-
-    list<int> queue;
-
-    visited[startVertex] = true;
-    queue.push_back(startVertex);
-
-    list<int>::iterator i;
-
-    while (!queue.empty())
+    while (!q.empty())
     {
-        int currVertex = queue.front();
-        cout << "Visited " << currVertex << " ";
-        queue.pop_front();
+        int node = q.front();
 
-        for (i = adjLists[currVertex].begin(); i != adjLists[currVertex].end(); ++i)
+        q.pop();
+        ans.push_back(node);
+        for (auto it : adj[node])
         {
-            int adjVertex = *i;
-            if (!visited[adjVertex])
+            if (vis[it] == false)
             {
-                visited[adjVertex] = true;
-                queue.push_back(adjVertex);
+                vis[it] = true;
+                q.push(it);
             }
         }
     }
+    return ans;
+}
+
+void addEdge(int src, int dest)
+{
+
+    adj[src].push_back(dest);
+    adj[dest].push_back(src);
 }
 
 int main()
 {
-    Graph g(4);
-    g.addEdge(0, 1);
-    g.addEdge(0, 2);
-    g.addEdge(1, 2);
-    g.addEdge(2, 0);
-    g.addEdge(2, 3);
-    g.addEdge(3, 3);
 
-    g.BFS(2);
+    addEdge(0, 1);
+    addEdge(4, 3);
+    addEdge(0, 2);
+    addEdge(1, 3);
+    addEdge(4, 1);
+    addEdge(5, 2);
+    addEdge(3, 5);
+
+    // Number of nodes in graph are 0 1 2 3 4 5
+
+    // dfsOfGraph(2);
+    // int m, n;
+    // cout << "Enter the number of vertices and edges  in graph " << endl;
+    // cin >> m >> n;
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     int u, v;
+    //     cin >> u >> v;
+
+    //     adj[u].push_back(v);
+    //     adj[v].push_back(u);
+    // }
+
+    vector<int> answer = bfsOfGraph(2);
+
+    cout << "bfs traversal of graph " << endl;
+    for (int i = 0; i < answer.size(); i++)
+    {
+        cout << answer[i] << " ";
+    }
+    cout << endl;
+
+    cout << "this is adjancy list is printing " << endl;
+    for (int i = 0; i < 6; i++)
+    {
+        cout << i << "-->";
+        for (auto k : adj[i])
+        {
+            cout << k << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }
