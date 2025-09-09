@@ -1,0 +1,25 @@
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,Default Security Groups are used,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,Security Group,Port,Attached resource,Traffic,Recommedation
+,,,,,sg-0d9f293ac53e54332,All ports,dashboard-live-telematics-qa-kraft,Open to world,We should not use default security group
+,,,,,,,lm-asset-manager-application-lb,,We should not use default security group
+,,,,,sg-ea0760ab,All Ports,dashboard-live-telematics-prod-kraft-1,,We should not use default security group
+,,,,,sg-069fda28,All ports,i-05739cd45ad908a93,Open to world,We should not use default security group
+,,,,,,,i-0f292c156cfad68d0,Open to world,We should not use default security group
+,,,,,sg-25732046,All ports,lm-asset-manager-application-lb,,We should not use default security group
+,,,,,,,,,
+,,,,,,,,,
+,,,,,Open to world,,,,
+,,,,,,,,,
+,,,,,Security Group,Port,Attached resource,Traffic,Recommendation
+,,,,,sg-05c210b85d95df42a,3389,i-0574e5d8e4a1931ad,Open to world,Limit to specific IP
+,,,,,sg-0a547cf82457fcb4b,22,i-05739cd45ad908a93,Open to world,Limit to specific IP
+,,,,,sg-0d69dd909a690e522,,i-041f5d1dd9a884f3e,Open to world,Limit to specific IP
+,,,,,sg-0560914647b4ac4f0,,i-06a87e0cdc116a91e,Open to world,Limit to specific IP
